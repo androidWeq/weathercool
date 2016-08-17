@@ -1,6 +1,7 @@
 package com.example.weathercool.activity;
 
 import com.example.weathercool.R;
+import com.example.weathercool.receiver.AutoUpdateReceiver;
 import com.example.weathercool.util.HttpCallbackListener;
 import com.example.weathercool.util.HttpUtil;
 import com.example.weathercool.util.Utility;
@@ -170,6 +171,8 @@ public class WeatherActivity extends Activity implements OnClickListener{
 		currentDateText.setText(prefs.getString("current_date", ""));
 		weatherInfoLayout.setVisibility(View.VISIBLE);
 		cityNameText.setVisibility(View.VISIBLE);
+		Intent intent=new Intent(this,AutoUpdateReceiver.class);
+		startService(intent);
 	}
 
 	@Override
